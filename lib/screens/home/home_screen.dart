@@ -1,8 +1,9 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:ticket_app/res/images.dart';
-import 'package:ticket_app/res/style/app_style.dart';
+import 'package:ticket_app/constants/images.dart';
+import 'package:ticket_app/constants/app_style.dart';
 import 'package:ticket_app/widgets/text_row_widgets.dart';
+import 'package:ticket_app/widgets/ticket_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -76,16 +77,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   firstText: 'Upcoming Flights',
                   secondText: 'View all',
                 ),
-                const SizedBox(height: 40),
-                const TextRowWidgets(
-                  firstText: 'Upcoming Flights',
-                  secondText: 'View all',
-                ),const SizedBox(height: 40),
-                const TextRowWidgets(
-                  firstText: 'Upcoming Flights',
-                  secondText: 'View all',
-                ),
-
+                const SizedBox(height: 20),
+                const TicketView()
               ],
             ),
           ),

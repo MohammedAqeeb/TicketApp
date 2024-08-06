@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_app/res/style/app_style.dart';
+import 'package:ticket_app/constants/app_style.dart';
 
 class TextRowWidgets extends StatelessWidget {
   final String firstText;
