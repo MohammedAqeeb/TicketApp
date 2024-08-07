@@ -2,11 +2,12 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/constants/images.dart';
 import 'package:ticket_app/constants/app_style.dart';
+import 'package:ticket_app/screens/home/utils/hotel_list_json.dart';
 import 'package:ticket_app/screens/home/utils/ticket_list_json.dart';
 import 'package:ticket_app/widgets/text_row_widgets.dart';
 import 'package:ticket_app/widgets/ticket_view.dart';
 
-import '../tickets/all_tickets.dart';
+import 'widget/all_tickets.dart';
 import 'widget/hotel_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -100,18 +101,30 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                VielAllTextWidgets(
-                  firstText: 'Hotel',
-                  secondText: 'View all',
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const HotelScreen(),
-                    ),
+                // VielAllTextWidgets(
+                //   firstText: 'Hotel',
+                //   secondText: 'View all',
+                //   onTap: () => Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const HotelListScreen(),
+                //     ),
+                //   ),
+                // ),
+                const SizedBox(height: 12),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: hotelList
+                        .take(3)
+                        .map(
+                          (hotels) => HotelListScreen(
+                            hotels: hotels,
+                          ),
+                        )
+                        .toList(),
                   ),
                 ),
-                const SizedBox(height: 10),
-                HotelScreen(),
               ],
             ),
           ),
