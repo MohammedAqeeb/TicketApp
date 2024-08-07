@@ -2,8 +2,12 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/constants/images.dart';
 import 'package:ticket_app/constants/app_style.dart';
+import 'package:ticket_app/screens/home/utils/ticket_list_json.dart';
 import 'package:ticket_app/widgets/text_row_widgets.dart';
 import 'package:ticket_app/widgets/ticket_view.dart';
+
+import '../tickets/all_tickets.dart';
+import 'widget/hotel_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,12 +78,40 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 40),
-                const TextRowWidgets(
+                VielAllTextWidgets(
                   firstText: 'Upcoming Flights',
                   secondText: 'View all',
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AllTicketsScreen(),
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 20),
-                const TicketView()
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: ticketList
+                        .take(2)
+                        .map((ticketDetails) =>
+                            TicketView(ticketDetails: ticketDetails))
+                        .toList(),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                VielAllTextWidgets(
+                  firstText: 'Hotel',
+                  secondText: 'View all',
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HotelScreen(),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                HotelScreen(),
               ],
             ),
           ),

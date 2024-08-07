@@ -7,7 +7,13 @@ import 'package:ticket_app/widgets/dotted_circle.dart';
 import 'package:ticket_app/widgets/lines_layout_builder.dart';
 
 class TicketView extends StatelessWidget {
-  const TicketView({super.key});
+  final Map<String, dynamic> ticketDetails;
+  final bool isWholeScreen;
+  const TicketView({
+    super.key,
+    required this.ticketDetails,
+    this.isWholeScreen = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +21,7 @@ class TicketView extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.85,
       height: 189,
       child: Container(
-        margin: const EdgeInsets.only(right: 16),
+        margin: EdgeInsets.only(right: isWholeScreen == true ? 16 : 0),
         child: Column(
           children: [
             // Blue part of the ticket the upper layer
@@ -32,7 +38,7 @@ class TicketView extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const TicketHeadlineText(text: 'IND'),
+                      TicketHeadlineText(text: ticketDetails['from']['code']),
                       Expanded(child: Container()),
                       const DottedCircle(),
                       Expanded(
@@ -56,23 +62,26 @@ class TicketView extends StatelessWidget {
                       ),
                       const DottedCircle(),
                       Expanded(child: Container()),
-                      const TicketHeadlineText(text: 'NYC'),
+                      TicketHeadlineText(text: ticketDetails['to']['code']),
                     ],
                   ),
                   const SizedBox(height: 6),
                   Row(
                     children: [
-                      const SizedBox(
-                        width: 100,
-                        child: TicketLabelText(labelText: 'India'),
-                      ),
-                      Expanded(child: Container()),
-                      const TicketLabelText(labelText: '5H 30M'),
-                      Expanded(child: Container()),
-                      const SizedBox(
+                      SizedBox(
                         width: 100,
                         child: TicketLabelText(
-                          labelText: 'New-York',
+                            labelText: ticketDetails['from']['name']),
+                      ),
+                      Expanded(child: Container()),
+                      TicketLabelText(
+                        labelText: ticketDetails['flying_time'],
+                      ),
+                      Expanded(child: Container()),
+                      SizedBox(
+                        width: 100,
+                        child: TicketLabelText(
+                          labelText: ticketDetails['to']['name'],
                           isAligned: TextAlign.end,
                         ),
                       ),
@@ -113,37 +122,77 @@ class TicketView extends StatelessWidget {
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const TicketHeadlineText(text: '5 Jan'),
-                      Expanded(child: Container()),
-                      const TicketHeadlineText(text: '12:20 AM'),
-                      Expanded(child: Container()),
-                      const TicketHeadlineText(text: '00201'),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TicketHeadlineText(text: ticketDetails['date']),
+                          const SizedBox(height: 4),
+                          const TicketLabelText(
+                            labelText: 'Date',
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          TicketHeadlineText(
+                              text: ticketDetails['departure_time']),
+                          const SizedBox(height: 4),
+                          const TicketLabelText(
+                            labelText: 'Departure Time',
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          TicketHeadlineText(
+                              text: ticketDetails['number'].toString()),
+                          const SizedBox(height: 4),
+                          const TicketLabelText(
+                            labelText: 'Number',
+                            isAligned: TextAlign.end,
+                          ),
+                        ],
+                      ),
                     ],
                   ),
-                  const SizedBox(height: 4),
-                  Row(
-                    children: [
-                      const SizedBox(
-                        width: 100,
-                        child: TicketLabelText(
-                          labelText: 'Date',
-                        ),
-                      ),
-                      Expanded(child: Container()),
-                      const TicketLabelText(
-                        labelText: 'Departure Time',
-                      ),
-                      Expanded(child: Container()),
-                      const SizedBox(
-                        width: 100,
-                        child: TicketLabelText(
-                          labelText: 'Number',
-                          isAligned: TextAlign.end,
-                        ),
-                      ),
-                    ],
-                  ),
+
+                  // Row(
+                  //   children: [
+                  //     TicketHeadlineText(text: ticketDetails['date']),
+                  //     Expanded(child: Container()),
+                  //     TicketHeadlineText(text: ticketDetails['departure_time']),
+                  //     Expanded(child: Container()),
+                  //     TicketHeadlineText(
+                  //         text: ticketDetails['number'].toString()),
+                  //   ],
+                  // ),
+                  // const SizedBox(height: 4),
+                  // Row(
+                  //   children: [
+                  //     const SizedBox(
+                  //       width: 100,
+                  //       child: TicketLabelText(
+                  //         labelText: 'Date',
+                  //       ),
+                  //     ),
+                  //     Expanded(child: Container()),
+                  //     const TicketLabelText(
+                  //       labelText: 'Departure Time',
+                  //     ),
+                  //     Expanded(child: Container()),
+                  //     const SizedBox(
+                  //       width: 100,
+                  //       child: TicketLabelText(
+                  //         labelText: 'Number',
+                  //         isAligned: TextAlign.end,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ),

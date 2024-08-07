@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/constants/app_style.dart';
 
-class TextRowWidgets extends StatelessWidget {
+class VielAllTextWidgets extends StatelessWidget {
   final String firstText;
   final String secondText;
-  const TextRowWidgets({
+  final Function() onTap;
+  const VielAllTextWidgets({
     super.key,
     required this.firstText,
     required this.secondText,
+    required this.onTap,
   });
 
   @override
@@ -19,10 +21,13 @@ class TextRowWidgets extends StatelessWidget {
           firstText,
           style: AppStyle.headLineStyle3,
         ),
-        Text(
-          secondText,
-          style: AppStyle.textStyle.copyWith(
-            color: AppStyle.primaryColor,
+        InkWell(
+          onTap: onTap,
+          child: Text(
+            secondText,
+            style: AppStyle.textStyle.copyWith(
+              color: AppStyle.primaryColor,
+            ),
           ),
         )
       ],
