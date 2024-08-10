@@ -2,6 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/screens/home/home_screen.dart';
 import 'package:ticket_app/screens/search/search_screen.dart';
+import 'package:ticket_app/screens/tickets/widget/ticket_previewed_bottom.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -16,7 +17,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   List appScreens = [
     const HomeScreen(),
     const SearchScreen(),
-    const Center(child: Text('Tickets')),
+    const TicketPreviewedBottomScreen(),
     const Center(child: Text('Profile')),
   ];
 

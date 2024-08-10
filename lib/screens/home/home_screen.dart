@@ -4,11 +4,12 @@ import 'package:ticket_app/constants/images.dart';
 import 'package:ticket_app/constants/app_style.dart';
 import 'package:ticket_app/screens/home/utils/hotel_list_json.dart';
 import 'package:ticket_app/screens/home/utils/ticket_list_json.dart';
-import 'package:ticket_app/widgets/text_row_widgets.dart';
+import 'package:ticket_app/widgets/view_all_text.dart';
 import 'package:ticket_app/widgets/ticket_view.dart';
 
 import 'widget/all_tickets.dart';
-import 'widget/hotel_screen.dart';
+import 'widget/hotel/hotel_preview_list.dart';
+import 'widget/hotel/hotel_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -95,23 +96,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     children: ticketList
                         .take(2)
-                        .map((ticketDetails) =>
-                            TicketView(ticketDetails: ticketDetails))
+                        .map((ticketDetails) => TicketPreviewListScreen(
+                              ticketDetails: ticketDetails,
+                              containerHeight: 189,
+                            ))
                         .toList(),
                   ),
                 ),
                 const SizedBox(height: 10),
-                // VielAllTextWidgets(
-                //   firstText: 'Hotel',
-                //   secondText: 'View all',
-                //   onTap: () => Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => const HotelListScreen(),
-                //     ),
-                //   ),
-                // ),
-                const SizedBox(height: 12),
+                VielAllTextWidgets(
+                  firstText: 'Hotel',
+                  secondText: 'View all',
+                  onTap: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HotelPreviewList(),
+                      ),
+                    ),
+                  },
+                ),
+                const SizedBox(height: 16),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(

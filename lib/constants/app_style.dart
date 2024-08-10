@@ -19,6 +19,20 @@ class AppStyle {
 
   static Color tabColor = const Color(0xFFF4f6fd);
 
+  static Color flightIconColor = const Color(0xFFF4f6fd);
+  static Color ticketBgColor = const Color(0xFFFFFFFF);
+
+  static Color hotelCardBgColor = const Color(0xFF1A2B5B);
+  static Color headlineTextColorGold = const Color(0xFFF1F1F1);
+  static Color subheadlineTextColor = const Color(0xFFAEC6CF);
+
+  static Color priceTextColorCoral = const Color(0xFFFF7F50);
+
+  static Color priceTextColorYellow = const Color(0xFFFFD700);
+
+  static Color flightColored = const Color(0xFF8ACCF7,);
+
+
   static TextStyle headLineStyle1 = TextStyle(
     fontSize: 26,
     fontWeight: FontWeight.w500,

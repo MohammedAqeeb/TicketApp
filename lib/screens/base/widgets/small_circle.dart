@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class SmallCircle extends StatelessWidget {
   final bool isRight;
+  final bool? isColor;
   const SmallCircle({
     super.key,
     required this.isRight,
+    this.isColor,
   });
 
   @override
@@ -14,7 +16,7 @@ class SmallCircle extends StatelessWidget {
       width: 10,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isColor == null ? Colors.white : Colors.grey.shade200,
           borderRadius: isRight == true
               ? const BorderRadius.only(
                   bottomRight: Radius.circular(10),

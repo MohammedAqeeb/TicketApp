@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/constants/app_style.dart';
 import 'package:ticket_app/screens/home/utils/ticket_list_json.dart';
+import 'package:ticket_app/screens/tickets/screen.dart';
 import 'package:ticket_app/widgets/ticket_view.dart';
 
 class AllTicketsScreen extends StatelessWidget {
@@ -26,11 +27,24 @@ class AllTicketsScreen extends StatelessWidget {
         child: Column(
           children: ticketList
               .map(
-                (tickets) => Container(
-                  alignment: Alignment.center,
-                  child: TicketView(
-                    isWholeScreen: false,
-                    ticketDetails: tickets,
+                (tickets) => GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TicketViewScreen(
+                          tickets: tickets,
+                        ),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: TicketPreviewListScreen(
+                      isWholeScreen: false,
+                      ticketDetails: tickets,
+                      containerHeight: 189,
+                    ),
                   ),
                 ),
               )

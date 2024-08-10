@@ -2,49 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:ticket_app/constants/app_style.dart';
 
 class TicketsTab extends StatelessWidget {
-  const TicketsTab({super.key});
+  final String firstTabText;
+  final String secondTabText;
+  const TicketsTab({
+    super.key,
+    required this.firstTabText,
+    required this.secondTabText,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size.width;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: AppStyle.tabColor,
       ),
-      child: const Row(
+      child:  Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          TextTabs(text: 'Airline Tickets', isLeft: true),
-          TextTabs(text: 'Hotels', isLeft: false),
-          // Container(
-          //   width: size * 0.44,
-          //   padding: const EdgeInsets.symmetric(vertical: 8),
-          //   decoration: const BoxDecoration(
-          //     borderRadius: BorderRadius.horizontal(left: Radius.circular(50)),
-          //     color: Colors.white,
-          //   ),
-          //   child: Center(
-          //     child: Text(
-          //       'Airline Tickets',
-          //       style: AppStyle.textStyle.copyWith(),
-          //     ),
-          //   ),
-          // ),
-          // Container(
-          //   width: size * 0.44,
-          //   padding: const EdgeInsets.symmetric(vertical: 8),
-          //   decoration: const BoxDecoration(
-          //     borderRadius: BorderRadius.horizontal(right: Radius.circular(50)),
-          //     color: Colors.transparent,
-          //   ),
-          //   child: Center(
-          //     child: Text(
-          //       'Hotels',
-          //       style: AppStyle.textStyle,
-          //     ),
-          //   ),
-          // ),
+          TextTabs(text: firstTabText, isLeft: true),
+          TextTabs(text: secondTabText, isLeft: false),
         ],
       ),
     );

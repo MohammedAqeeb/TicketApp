@@ -18,7 +18,7 @@ class HotelListScreen extends StatelessWidget {
       height: 310,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
-        color: AppStyle.primaryColor,
+        color: AppStyle.hotelCardBgColor,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +27,7 @@ class HotelListScreen extends StatelessWidget {
             height: 180,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              image:  DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage('${AppImages.basePath}/${hotels['image']}'),
               ),
@@ -39,7 +39,7 @@ class HotelListScreen extends StatelessWidget {
             child: Text(
               hotels['place'],
               style: AppStyle.headLineStyle3.copyWith(
-                color: AppStyle.logoColor,
+                color: AppStyle.headlineTextColorGold,
               ),
             ),
           ),
@@ -49,7 +49,7 @@ class HotelListScreen extends StatelessWidget {
             child: Text(
               hotels['destination'],
               style: AppStyle.headLineStyle3.copyWith(
-                color: AppStyle.logoColor,
+                color: AppStyle.subheadlineTextColor,
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
@@ -61,7 +61,7 @@ class HotelListScreen extends StatelessWidget {
             child: Text(
               '\u{20B9}${hotels['price']} / night',
               style: AppStyle.headLineStyle3.copyWith(
-                color: Colors.white,
+                color: AppStyle.priceTextColorYellow,
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
               ),
