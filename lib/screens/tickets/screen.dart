@@ -23,16 +23,20 @@ class TicketViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyle.bgColor,
+      appBar: AppBar(
+        backgroundColor: AppStyle.bgColor,
+        foregroundColor: AppStyle.textColor,
+        elevation: 0,
+        title: Text(
+          'Tickets',
+          style: AppStyle.headLineStyle3,
+        ),
+      ),
       body: Stack(
         children: [
           ListView(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             children: [
-              const SizedBox(height: 40),
-              Text(
-                'Tickets',
-                style: AppStyle.headLineStyle1,
-              ),
               const SizedBox(height: 24),
               const TicketsTab(
                 firstTabText: 'Upcoming',
@@ -170,6 +174,14 @@ class TicketViewScreen extends StatelessWidget {
                       width: double.infinity,
                     ),
                   ),
+                ),
+              ),
+              const SizedBox(height: 24),
+              Padding(
+                padding: const EdgeInsets.only(left: 16, top: 10),
+                child: TicketPreviewListScreen(
+                  ticketDetails: tickets,
+                  containerHeight: 170,
                 ),
               ),
             ],

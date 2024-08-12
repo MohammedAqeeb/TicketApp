@@ -4,11 +4,13 @@ import 'package:ticket_app/constants/images.dart';
 import 'package:ticket_app/constants/app_style.dart';
 import 'package:ticket_app/screens/home/utils/hotel_list_json.dart';
 import 'package:ticket_app/screens/home/utils/ticket_list_json.dart';
+import 'package:ticket_app/screens/tickets/screen.dart';
 import 'package:ticket_app/widgets/view_all_text.dart';
 import 'package:ticket_app/widgets/ticket_view.dart';
 
 import 'widget/all_tickets.dart';
-import 'widget/hotel/hotel_preview_list.dart';
+import 'widget/hotel/hotel_details.dart';
+import 'widget/hotel/hotel_grid_view.dart';
 import 'widget/hotel/hotel_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -96,9 +98,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     children: ticketList
                         .take(2)
-                        .map((ticketDetails) => TicketPreviewListScreen(
-                              ticketDetails: ticketDetails,
-                              containerHeight: 189,
+                        .map((ticketDetails) => GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => TicketViewScreen(
+                                      tickets: ticketDetails,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: TicketPreviewListScreen(
+                                ticketDetails: ticketDetails,
+                                containerHeight: 189,
+                              ),
                             ))
                         .toList(),
                   ),
@@ -111,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const HotelPreviewList(),
+                        builder: (context) => const HotelGridPreviewList(),
                       ),
                     ),
                   },
@@ -123,8 +137,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: hotelList
                         .take(3)
                         .map(
-                          (hotels) => HotelListScreen(
-                            hotels: hotels,
+                          (hotels) => GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HotelDetails(
+                                    hotels: hotels,
+                                  ),
+                                ),
+                              );
+                            },
+                            child: HotelListScreen(
+                              hotels: hotels,
+                            ),
                           ),
                         )
                         .toList(),

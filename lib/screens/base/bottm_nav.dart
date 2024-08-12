@@ -1,6 +1,7 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/screens/home/home_screen.dart';
+import 'package:ticket_app/screens/profile/screen.dart';
 import 'package:ticket_app/screens/search/search_screen.dart';
 import 'package:ticket_app/screens/tickets/widget/ticket_previewed_bottom.dart';
 
@@ -18,7 +19,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     const HomeScreen(),
     const SearchScreen(),
     const TicketPreviewedBottomScreen(),
-    const Center(child: Text('Profile')),
+    const ProfileScreen(),
   ];
 
   void onSelect(int index) {
