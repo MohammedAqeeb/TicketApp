@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/constants/app_style.dart';
-import 'package:ticket_app/screens/base/widgets/small_circle.dart';
-import 'package:ticket_app/screens/home/widget/ticket_headline_text.dart';
-import 'package:ticket_app/screens/home/widget/ticket_label_text.dart';
+import 'package:ticket_app/widgets/small_circle.dart';
+import 'package:ticket_app/screens/home/widget/tickets/ticket_headline_text.dart';
+import 'package:ticket_app/screens/home/widget/tickets/ticket_label_text.dart';
 import 'package:ticket_app/widgets/app_column_text_layout.dart';
 import 'package:ticket_app/widgets/dotted_circle.dart';
 import 'package:ticket_app/widgets/lines_layout_builder.dart';

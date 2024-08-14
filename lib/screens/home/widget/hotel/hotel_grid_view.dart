@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/constants/app_style.dart';
 import 'package:ticket_app/constants/images.dart';
-import 'package:ticket_app/screens/home/utils/hotel_list_json.dart';
+import 'package:ticket_app/constants/utils/hotel_list_json.dart';
 import 'package:ticket_app/screens/home/widget/hotel/hotel_details.dart';
 
 class HotelGridPreviewList extends StatelessWidget {

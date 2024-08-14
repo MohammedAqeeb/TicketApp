@@ -2,14 +2,14 @@ import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/constants/app_style.dart';
 import 'package:ticket_app/constants/images.dart';
-import 'package:ticket_app/screens/home/widget/ticket_headline_text.dart';
+import 'package:ticket_app/screens/home/widget/tickets/ticket_headline_text.dart';
 import 'package:ticket_app/screens/search/widgets/tickets_tab.dart';
 import 'package:ticket_app/screens/tickets/widget/positioned_circles.dart';
 import 'package:ticket_app/widgets/app_column_text_layout.dart';
 import 'package:ticket_app/widgets/lines_layout_builder.dart';
 import 'package:ticket_app/widgets/ticket_view.dart';
 
-import '../home/widget/ticket_label_text.dart';
+import '../home/widget/tickets/ticket_label_text.dart';
 
 class TicketViewScreen extends StatelessWidget {
   final Map<String, dynamic> tickets;

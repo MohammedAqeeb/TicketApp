@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/constants/app_style.dart';
-import 'package:ticket_app/screens/home/utils/ticket_list_json.dart';
+import 'package:ticket_app/constants/utils/ticket_list_json.dart';
 import 'package:ticket_app/screens/tickets/screen.dart';
 import 'package:ticket_app/widgets/ticket_view.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_app/screens/home/widget/ticket_headline_text.dart';
-import 'package:ticket_app/screens/home/widget/ticket_label_text.dart';
+import 'package:ticket_app/screens/home/widget/tickets/ticket_headline_text.dart';
+import 'package:ticket_app/screens/home/widget/tickets/ticket_label_text.dart';
 
 class AppColumnTextLayout extends StatelessWidget {
   final String firstText;

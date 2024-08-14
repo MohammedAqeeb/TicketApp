@@ -2,13 +2,13 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/constants/images.dart';
 import 'package:ticket_app/constants/app_style.dart';
-import 'package:ticket_app/screens/home/utils/hotel_list_json.dart';
-import 'package:ticket_app/screens/home/utils/ticket_list_json.dart';
+import 'package:ticket_app/constants/utils/hotel_list_json.dart';
+import 'package:ticket_app/constants/utils/ticket_list_json.dart';
 import 'package:ticket_app/screens/tickets/screen.dart';
 import 'package:ticket_app/widgets/view_all_text.dart';
 import 'package:ticket_app/widgets/ticket_view.dart';
 
-import 'widget/all_tickets.dart';
+import 'widget/tickets/all_tickets.dart';
 import 'widget/hotel/hotel_details.dart';
 import 'widget/hotel/hotel_grid_view.dart';
 import 'widget/hotel/hotel_screen.dart';

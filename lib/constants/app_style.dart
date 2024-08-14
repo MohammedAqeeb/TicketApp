@@ -30,8 +30,9 @@ class AppStyle {
 
   static Color priceTextColorYellow = const Color(0xFFFFD700);
 
-  static Color flightColored = const Color(0xFF8ACCF7,);
+  static Color flightColored = const Color(0xFF8ACCF7);
 
+  static Color profileColor = const Color(0xFF526799);
 
   static TextStyle headLineStyle1 = TextStyle(
     fontSize: 26,
